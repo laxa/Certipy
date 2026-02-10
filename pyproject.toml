@@ -20,7 +20,7 @@ classifiers = [
 dependencies = [
     "asn1crypto~=1.5.1",
     "cryptography~=42.0.8",
-    "impacket~=0.13.0",
+    "impacket @ git+https://github.com/fortra/impacket",
     "ldap3~=2.9.1",
     "pyasn1~=0.6.1",
     "dnspython~=2.7.0",
