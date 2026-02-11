@@ -403,7 +403,11 @@ class EncType(enum.IntEnum):
     DES3 = 16
     AES128 = 17
     AES256 = 18
+    AES256_SHA256 = 19
+    AES256_SHA384 = 20
     RC4 = 23
+    CAMELLIA128 = 25
+    CAMELLIA256 = 26
 
 
 class AlgorithmIdentifiers(core.SequenceOf):

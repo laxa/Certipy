@@ -244,7 +244,7 @@ def build_pkinit_as_req(
 
     # Build KDC-REQ-BODY
     kdc_req_body_data = {
-        "kdc-options": KDCOptions({"forwardable", "renewable", "renewable-ok"}),
+        "kdc-options": KDCOptions({"forwardable", "proxiable", "renewable-ok"}),
         "cname": PrincipalName(
             {"name-type": NameType.PRINCIPAL, "name-string": [username]}
         ),
@@ -258,7 +258,7 @@ def build_pkinit_as_req(
         "till": (now + datetime.timedelta(days=1)).replace(microsecond=0),
         "rtime": (now + datetime.timedelta(days=1)).replace(microsecond=0),
         "nonce": getrandbits(31),
-        "etype": [EncType.AES256, EncType.AES128],  # Prefer stronger ciphers
+        "etype": [EncType.AES256, EncType.AES128, EncType.AES256_SHA384, EncType.AES256_SHA256, EncType.DES3, EncType.RC4, EncType.CAMELLIA128, EncType.CAMELLIA256],  # Prefer stronger ciphers
     }
 
     kdc_req_body = KdcReqBody(kdc_req_body_data)
